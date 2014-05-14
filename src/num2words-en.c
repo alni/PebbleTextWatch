@@ -40,7 +40,7 @@ static const char* const TENS[] = {
   "ninety"
 };
 
-static size_t append_number(char* words, int num) {
+/*static size_t append_number(char* words, int num) {
   int tens_val = num / 10 % 10;
   int ones_val = num % 10;
 
@@ -121,4 +121,4 @@ void time_to_3words(int hours, int minutes, char *line1, char *line2, char *line
 			pch[0] = 0;
 		}
 	}
-}
+}*/
