@@ -197,34 +197,38 @@ static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
 
 static void init() {
   window = window_create();
+  window_set_fullscreen(window, true);
   window_stack_push(window, true);
   window_set_background_color(window, GColorBlack);
 
 	// Custom fonts
-	lightFont = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_GOTHAM_LIGHT_31));
-	boldFont = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_GOTHAM_BOLD_36));
+	//lightFont = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_GOTHAM_LIGHT_31));
+  lightFont = fonts_get_system_font(FONT_KEY_BITHAM_42_LIGHT);
+  
+	//boldFont = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_GOTHAM_BOLD_36));
+  boldFont = fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD);
 
 	// 1st line layers
-	line1.currentLayer = text_layer_create(GRect(0, 18, 144, 50));
-	line1.nextLayer = text_layer_create(GRect(144, 18, 144, 50));
+	line1.currentLayer = text_layer_create(GRect(0, 0, 144, 50));
+	line1.nextLayer = text_layer_create(GRect(144, 0, 144, 50));
 	configureBoldLayer(line1.currentLayer);
 	configureBoldLayer(line1.nextLayer);
 
 	// 2nd layers
-	line2.currentLayer = text_layer_create(GRect(0, 55, 144, 50));
-	line2.nextLayer = text_layer_create(GRect(144, 55, 144, 50));
+	line2.currentLayer = text_layer_create(GRect(0, 37, 144, 50));
+	line2.nextLayer = text_layer_create(GRect(144, 37, 144, 50));
 	configureLightLayer(line2.currentLayer);
 	configureLightLayer(line2.nextLayer);
 
 	// 3rd layers
-	line3.currentLayer = text_layer_create(GRect(0, 85, 144, 50));
-	line3.nextLayer = text_layer_create(GRect(144, 85, 144, 50));
+	line3.currentLayer = text_layer_create(GRect(0, 74, 144, 50));
+	line3.nextLayer = text_layer_create(GRect(144, 74, 144, 50));
 	configureLightLayer(line3.currentLayer);
 	configureLightLayer(line3.nextLayer);
   
   // 4th layers
-	line4.currentLayer = text_layer_create(GRect(0, 115, 144, 50));
-	line4.nextLayer = text_layer_create(GRect(144, 115, 144, 50));
+	line4.currentLayer = text_layer_create(GRect(0, 111, 144, 50));
+	line4.nextLayer = text_layer_create(GRect(144, 111, 144, 50));
 	configureLightLayer(line4.currentLayer);
 	configureLightLayer(line4.nextLayer);
 
